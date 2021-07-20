@@ -2,14 +2,6 @@
 
 #### <u>Open Category</u>
 
-Team members: 
-
-1. Ashley Ooi Yan-Lin 
-2. Tan Eng Teck 
-3. Lim Ke An 
-4. Shamrethan Balendran
-
-
 
 #### Project background
 
