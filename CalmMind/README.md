@@ -45,7 +45,7 @@ Features Highlight
 
 ##### To run the website:
 
-The main folder contains all the required file to run the application. The directory to the homepage is `ClamMind/src/index.html`
+The main folder contains all the required file to run the application. The directory to the homepage is `CalmMind/src/index.html`
 
 The main page looks like:
 
