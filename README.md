@@ -6,8 +6,8 @@ Team members:
 
 1. Ashley Ooi Yan-Lin 
 2. Tan Eng Teck 
-3. Shamrethan Balendran
-4. Lim Ke An 
+3. Lim Ke An 
+4. Shamrethan Balendran
 
 
 
