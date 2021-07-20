@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Calm Mind [Caring Community]</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Encode+Sans+SC:wght@300&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Encode+Sans+SC:wght@300&family=PT+Serif&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Encode+Sans+SC:wght@300&family=PT+Serif&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="../css/index.css" />
+
+        <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+        <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+        <script src="https://cdn.amcharts.com/lib/4/plugins/wordCloud.js"></script>
+        <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+
+    </head>
+    <body>
+        <div class="sticky">
+            <nav class="navbar">
+                <div class="logo">
+                    <a href="./index.html" style="text-decoration: none;color: black">Calm<br />Mind</a>
+                </div>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a href="./forum.html" class="nav-link">
+                            <span>Forum</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./faq.html" class="nav-link">
+                            <span>FAQ</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./aboutus.html" class="nav-link">
+                            <span>About Us</span>
+                        </a>
+                    </li>
+
+                </ul>
+                <a class="login" href="./login.html"><span>Login/Sign Up</span><img src="../logo/sign-in-alt-solid.svg" alt="login/sign up" class="login-icon" /></a>
+            </nav>
+        </div>
+        <div class="homepage-banner">
+            <h1 class="welcome-title">Welcome to Calm Mind!</h1>
+            <div class="welcome-slogan">
+                /* We care about you, a lot */
+            </div>
+        </div>
+        <span class="divider">
+            <img src="../logo/emoji/kiss-beam-regular.svg" />
+            <img src="../logo/emoji/laugh-beam-regular.svg" />
+            <img src="../logo/emoji/laugh-wink-regular.svg" />
+            <img src="../logo/emoji/tired-regular.svg" />
+        </span>
+        <div class="problem-today-container">
+            <form class="problem-form">
+                <label class="problem-label">
+                    <img src="../logo/hashtag-solid.svg" />
+                    Problem: This is the problem today
+                </label>
+                <div class="answer-box">
+                    <input type="text" placeholder="Here's your answer" onchange="handleChange(this)" />
+                    <img src="../logo/plus-square-solid.svg" />
+                </div>
+                <span id="answer-only"></span>
+                <div id="wordcloud"></div>
+                <script>
+                    const handleChange = (input) => {
+                        var answer = document.getElementById("answer-only");
+                        if(input.value.length > 0) {
+                            answer.style.visibility = "visible";
+                            answer.innerHTML = `↪ ${input.value}`;
+                        } else {
+                            answer.style.visibility = "hidden";
+                        }
+                    };
+
+                    am4core.ready(function() {
+
+                        // Themes begin
+                        am4core.useTheme(am4themes_animated);
+                        // Themes end
+
+                        var chart = am4core.create("wordcloud", am4plugins_wordCloud.WordCloud);
+                        var series = chart.series.push(new am4plugins_wordCloud.WordCloudSeries());
+
+                        series.step = 15;
+                        series.rotationThreshold = 0.7;
+                        series.maxCount = 100;
+                        series.minWordLength = 2;
+                        series.labels.template.tooltipText = "{word}";
+                        series.labels.template.fill = am4core.color("#000000");
+                        series.fontFamily = "Courier New";
+                        series.maxFontSize = am4core.percent(30);
+
+                        series.text = ["sad","happy","depressed","faithful","noisy","calm","peaceful","anxious","calm","peaceful","anxious","grateful","nervous","stressed","powerful","refreshing","overwhelm","brave","sad","happy","depressed","faithful","noisy","calm","peaceful","peaceful","anxious","grateful","nervous","stressed","powerful","refreshing","overwhelm","brave","grateful","nervous","stressed"].join(" ");
+                    });
+                </script>
+            </form>
+        </div>
+        <span class="divider">
+            <img src="../logo/emoji/kiss-beam-regular.svg" />
+            <img src="../logo/emoji/laugh-beam-regular.svg" />
+            <img src="../logo/emoji/laugh-wink-regular.svg" />
+            <img src="../logo/emoji/tired-regular.svg" />
+        </span>
+        <div class="ytd-container">
+            <div class="ytd-label">
+                <img src="../logo/backward-solid.svg" />
+                Topic Yesterday
+                <br />
+                <img src="../logo/hashtag-solid.svg" />
+                    <a href="#" id="hashtag">HashTag</a>
+            </div>
+            <div class="post-container">
+                <div class="post-box">
+                    <img src="../image/love.jpg" />
+                    <span class="post-box-content">
+                        <div id="post-title"><a href="#" id="post-link">Title</a></div>
+                        <span class="post-profile"><img src="../logo/user-circle-solid.svg" />Profile</span>
+                    </span>
+                </div>
+                <div class="post-box">
+                    <img src="../image/love.jpg" />
+                    <span class="post-box-content">
+                        <div id="post-title"><a href="#" id="post-link">Title</a></div>
+                        <span class="post-profile"><img src="../logo/user-circle-solid.svg" />Profile</span>
+                    </span>
+                </div>
+                <div class="post-box">
+                    <img src="../image/love.jpg" />
+                    <span class="post-box-content">
+                        <div id="post-title"><a href="#" id="post-link">Title</a></div>
+                        <span class="post-profile"><img src="../logo/user-circle-solid.svg" />Profile</span>
+                    </span>
+                </div>
+                <div class="post-box">
+                    <img src="../image/love.jpg" />
+                    <span class="post-box-content">
+                        <div id="post-title"><a href="#" id="post-link">Title</a></div>
+                        <span class="post-profile"><img src="../logo/user-circle-solid.svg" />Profile</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <span class="divider">
+            <img src="../logo/emoji/kiss-beam-regular.svg" />
+            <img src="../logo/emoji/laugh-beam-regular.svg" />
+            <img src="../logo/emoji/laugh-wink-regular.svg" />
+            <img src="../logo/emoji/tired-regular.svg" />
+        </span>
+        <div class="rank-container">
+            <div class="post-container">
+                <span class="rank-post-box-title">
+                    Top<br />Topic<br />in<br />Month
+                </span>
+                <div class="rank-post-box">
+                    <img src="../image/love.jpg" class="rank-post-box-img" />
+                    <span class="post-box-content">
+                        <div id="post-title"><a href="#" id="post-link">Title</a></div>
+                        <span class="post-profile"><img src="../logo/user-circle-solid.svg" />Profile</span>
+                    </span>
+                </div>
+                <div class="rank-post-box">
+                    <img src="../image/love.jpg" class="rank-post-box-img" />
+                    <span class="post-box-content">
+                        <div id="post-title"><a href="#" id="post-link">Title</a></div>
+                        <span class="post-profile"><img src="../logo/user-circle-solid.svg" />Profile</span>
+                    </span>
+                </div>
+                <div class="rank-post-box">
+                    <img src="../image/love.jpg" class="rank-post-box-img" />
+                    <span class="post-box-content">
+                        <div id="post-title"><a href="#" id="post-link">Title</a></div>
+                        <span class="post-profile"><img src="../logo/user-circle-solid.svg" />Profile</span>
+                    </span>
+                </div>
+                <div class="rank-post-box">
+                    <img src="../image/love.jpg" class="rank-post-box-img" />
+                    <span class="post-box-content">
+                        <div id="post-title"><a href="#" id="post-link">Title</a></div>
+                        <span class="post-profile"><img src="../logo/user-circle-solid.svg" />Profile</span>
+                    </span>
+                </div>
+                <div class="rank-post-box">
+                    <img src="../image/love.jpg" class="rank-post-box-img" />
+                    <span class="post-box-content">
+                        <div id="post-title"><a href="#" id="post-link">Title</a></div>
+                        <span class="post-profile"><img src="../logo/user-circle-solid.svg" />Profile</span>
+                    </span>
+                </div>
+                <div class="rank-post-box">
+                    <img src="../image/love.jpg" class="rank-post-box-img" />
+                    <span class="post-box-content">
+                        <div id="post-title"><a href="#" id="post-link">Title</a></div>
+                        <span class="post-profile"><img src="../logo/user-circle-solid.svg" />Profile</span>
+                    </span>
+                </div>
+                
+            </div>
+        </div>
+        <div class="footer">
+            <div class="footer-credit">Mental Health is created by <a href="./aboutus.html">us</a></div>
+            <div class="footer-content">
+                <span id="quickhack"><span style="color:var(--sub-color);">Quick</span>Hack</span>
+                <div>
+                    <span class="footer-title">Contact</span>
+                    <ul>
+                        <li>Email</li>
+                        <li>Suggestion</li>
+                    </ul>
+                    <br />
+                    <span class="footer-title">Follow</span>
+                    <ul>
+                        <li>Facebook</li>
+                        <li>Instagram</li>
+                        <li>Twitter</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
