@@ -44,4 +44,4 @@ The main folder contains all the required file to run the application. The direc
 
 The main page looks like:
 
-<img src="./homepage-example.png" alt="image-20210718204055642" style="zoom:45%;" />
+<img src="./homepage-example.png" alt="image-20210718204055642" style="zoom:45%;"/>
